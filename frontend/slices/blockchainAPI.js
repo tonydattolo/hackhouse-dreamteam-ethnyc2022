@@ -13,6 +13,11 @@ const blockchainApi = createApi({
   // tagTypes: ["blockchain"],
   endpoints: (builders) => ({
     // insert api calls here as needed
+    getBlock: (blockHash) =>
+      builders.get("https://api.blockchain.info/v2/rawblock/" + blockHash),
   }),
 });
     
+export const {
+  //queries and mutations
+} = blockchainApi;

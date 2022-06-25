@@ -24,8 +24,8 @@ const persistConfig = {
   storage,
   // whitelist: ['auth']
   blacklist: [
-    blockchainApi.reducerPath,
-    blockchain
+    // blockchainApi.reducerPath,
+    // blockchain
   ],
 }
 
@@ -43,7 +43,7 @@ export const makeStore = () =>
         },
       })
         // .concat(authApi.middleware)
-        .concat(blockchainApi.middleware)
+        // .concat(blockchainApi.middleware)
     
   })
   

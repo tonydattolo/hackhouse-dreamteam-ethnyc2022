@@ -1,5 +1,5 @@
-// import Layout from "../components/Layout/Layout";
 import "../styles/globals.scss";
+import Layout from "@/components/Layout/Layout";
 import { Provider as ReduxProvider } from "react-redux";
 import { store } from "store";
 import { persistStore } from "redux-persist";
@@ -12,7 +12,7 @@ import { ChainId, IpfsStorage, ThirdwebProvider } from "@thirdweb-dev/react";
 
 let persistor = persistStore(store);
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   // return <Component {...pageProps} />
   const getLayout = Component.getLayout || ((page) => page);
 
@@ -25,16 +25,16 @@ function MyApp({ Component, pageProps }) {
         //   ipfsApiUrl: "http://localhost:5001",
         //   ipfsGatewayUrl: "http://localhost:8080"
         // })}
-        walletConnectors={[
-          "walletConnect",
-          { name: "injected", options: { shimDisconnect: false } },
-          {
-            name: "walletLink",
-            options: {
-              appName: "DreamTeamGuildSoulbound",
-            },
-          },
-        ]}
+        // walletConnectors={[
+        //   "walletConnect",
+        //   { name: "injected", options: { shimDisconnect: false } },
+        //   {
+        //     name: "walletLink",
+        //     options: {
+        //       appName: "DreamTeamGuildSoulbound",
+        //     },
+        //   },
+        // ]}
       >
         <PersistGate persistor={persistor}>
           {Component.getLayout ? (
@@ -56,4 +56,3 @@ function MyApp({ Component, pageProps }) {
 
 }
 
-export default MyApp
